@@ -1,49 +1,108 @@
+
 # Homecare Platform Backend
 
-FastAPI backend for a home-care service marketplace.
+This is the backend for my Homecare Platform project. The platform is designed to connect customers with homecare service providers.
 
-## Architecture
+I am building this project to practice backend development, database management, authentication, and API testing using FastAPI and PostgreSQL.
 
-Router -> Schema -> Service -> Repository -> PostgreSQL
+## Technologies
 
-## Features
+- Python
+- FastAPI
+- PostgreSQL
+- SQLAlchemy
+- Alembic
+- Pydantic
+- JWT Authentication
+- Pytest
+- Postman
 
-- JWT authentication
-- Customer, service provider and admin roles
-- Provider profiles, services and locations
+## Main Features
+
+- User registration and login
+- User profile management
+- Provider profiles
 - Service categories
-- Multiple services per customer request
-- Nearest-provider matching
-- Provider assignments and status workflow
+- Service requests
+- Provider matching
+- Assignments
 - Quotes
-- Payment records and payment status
+- Payments
 - Notifications
-- Reviews and provider ratings
-- Issue reporting and admin resolution
-- PostgreSQL and Alembic
+- Reviews
+- Issue reporting
+- Admin management
 
-## Run
+## Project Structure
+
+```text
+app/
+├── core/
+├── database/
+├── models/
+├── repositories/
+├── routers/
+├── schemas/
+└── services/
+
+tests/
+├── routers/
+├── services/
+└── repositories/
+```
+
+The project separates routing, business logic, database operations, models, and schemas to keep the backend organized and easier to maintain.
+
+## Running the Project
+
+Clone the repository:
 
 ```bash
+git clone git@github.com:angeliqueeumwali/homecare-platform-backend.git
+cd homecare-platform-backend
+```
+
+Create and activate a virtual environment:
+
+```bash
+python3 -m venv .venv
 source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Configure your environment variables in a `.env` file.
+
+Start the development server:
+
+```bash
 uvicorn app.main:app --reload
 ```
 
-API documentation:
+The API documentation is available at:
 
-`http://127.0.0.1:8000/docs`
-
-## Database migrations
-
-```bash
-alembic upgrade head
+```text
+http://127.0.0.1:8000/docs
 ```
 
-For future schema changes:
+## Testing
+
+Run the tests with:
 
 ```bash
-alembic revision --autogenerate -m "describe change"
-alembic upgrade head
+pytest
 ```
 
-Never commit `.env` or database credentials.
+The current test suite includes health router, health service, and database connection tests.
+
+## Project Status
+
+The backend is under development. I am continuing to build and test the platform's features.
+
+## Author
+
+Umwali Angelique
